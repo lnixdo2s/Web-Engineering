@@ -1,0 +1,26 @@
+[
+    {
+        "name":"Alan Turing",
+        "password":"1337at$",
+        "desc":"was an English mathematician, computer scientist, logician, cryptanalyst, philosopher, and theoretical biologist.",
+        "image":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Alan_Turing_Aged_16.jpg/330px-Alan_Turing_Aged_16.jpg"
+    },
+    {
+        "name":"Katherine Johnson",
+        "password":"abcdef$",
+        "desc":"was an American mathematician whose calculations of orbital mechanics as a NASA employee were critical to the success of the first and subsequent U.S. crewed spaceflights.",
+        "image":"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Katherine_Johnson_1983.jpg/330px-Katherine_Johnson_1983.jpg"
+    },
+    {
+        "name":"Heinz Nixdorf",
+        "password":"abcdef$",
+        "desc":"was a German computing pioneer, businessman and founder of Nixdorf Computer AG.",
+        "image":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/NIXDORF_SW.jpg/330px-NIXDORF_SW.jpg"
+    },
+    {
+        "name":"Grace Hopper",
+        "password":"abcdef$",
+        "desc":"was an American computer scientist and United States Navy rear admiral.",
+        "image":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Commodore_Grace_M._Hopper%2C_USN_%28covered%29.jpg/330px-Commodore_Grace_M._Hopper%2C_USN_%28covered%29.jpg"
+    }
+]

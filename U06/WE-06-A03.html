@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>WE-06-03</title>
+  </head>
+  <body>
+    <div class="topnav">
+      <a href="javascript:showpage('html');">HTML</a>
+      <a href="javascript:showpage('css');">CSS</a>
+      <a href="javascript:showpage('javascript');">Javascript</a>
+      <a href="#Other">Other</a>
+    </div>
+    <div id="sidenav" class="sidenav">
+
+    </div>
+    <div id="content" class="content">
+
+    </div>
+    <div id="source" class="source">
+
+    </div>
+  </body>
+  <script type="text/javascript">
+    let data = 0;
+    loadData()
+    .then((response) => {
+       data = response;
+     });
+    async function loadData() {
+         const response = await fetch("data.json");
+         const data = await response.json();
+         return data;
+     }
+
+    function showpage(menu) {
+      document.getElementById('sidenav').innerHTML = "";
+      for(x in data.menus[menu]) {
+        document.getElementById('sidenav').innerHTML += '<a href="javascript:showcontent(\'' + x + "\',\'" + menu + '\');">' + x + '</a>';
+      }
+    }
+    function showcontent(content, menu) {
+      document.getElementById('content').innerHTML = "<br> Content: <br>" + data.menus[menu][content].Content;
+      document.getElementById('source').innerHTML = "Source: " + data.menus[menu][content].Source;
+    }
+
+  </script>
+</html>

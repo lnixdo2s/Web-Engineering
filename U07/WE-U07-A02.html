@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Stopwatch</title>
+  </head>
+  <body>
+
+  </body>
+  <script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/webcomponents-loader.js"></script>
+  <script type="module">
+    import { LitElement, html, css } from 'https://unpkg.com/lit-element/lit-element.js?module';
+
+    class Stopwatch extends LitElement {
+      static get properties() {
+        return {
+          time: { type: Number },
+          running: { type: Boolean },
+          classname: { type: String }
+        };
+      }
+      constructor() {
+        super();
+
+        this.time = 0;
+        this.running = false;
+        this.classname = "stop-watch";
+        setInterval(() => {
+          if(this.running) {
+            this.time = this.time + 1;
+          }
+        }, 1000);
+      }
+      startClock() {
+        this.time = 0;
+        this.running = true;
+      }
+      stopClock() {
+        this.running = false;
+      }
+      continueClock() {
+        this.running = true;
+      }
+      static get styles() {
+       return css`
+          .stopwatch {
+
+          }
+       `;
+      }
+
+      render() {
+        return html`
+          <label>
+            <input
+              type='button'
+              class='${this.classname}-start'
+              value='Start'
+              @click='${this.startClock}'
+            ></input>
+            &nbsp;
+            <input
+              type='button'
+              value='Stop'
+              class='${this.classname}-stop'
+              @click='${this.stopClock}'
+            ></input>
+            &nbsp;
+            <input
+              type='button'
+              value='Continue'
+              class='${this.classname}-continue'
+              @click='${this.continueClock}'
+            ></input>
+            <br>
+            <p
+              class='${this.classname}-watch'
+              >${this.time}</p>
+            <slot></slot>
+          </label>
+        `;
+      }
+    }
+
+    customElements.define('stop-watch', Stopwatch);
+  </script>
+  <stop-watch value></stop-watch>
+</html>

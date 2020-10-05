@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <title></title>
+  </head>
+  <body>
+    <h2>U06 A02: <br> </h2>
+    <h3>Text A</h3>
+    <div id="A">
+
+    </div>
+    <hr>
+    <h3>Text B</h3>
+    <div id="B">
+
+    </div>
+    <hr>
+    <h3>Concat</h3>
+    <div id="concat">
+
+
+    </div>
+  </body>
+  <script type="text/javascript">
+
+    function fetchTexts() {
+      return Promise.all([
+        fetch("http://localhost:8080/Desktop/U06/A.txt").then(response => response.text()),
+        fetch("http://localhost:8080/Desktop/U06/B.txt").then(response => response.text())
+      ])
+    }
+    async function splitTexts(fetchedTexts) {
+      return [fetchedTexts[0].split(/\r?\n/),
+      fetchedTexts[1].split(/\r?\n/)];
+    }
+    function concatTexts(text) {
+      return new Promise((resolve, reject) => {
+        let concat = "";
+        for (let i = 0; i < text[0].length || i < text[1].length; i++) {
+          if (i < text[0].length) concat += text[0][i] + " ";
+          if (i < text[1].length) concat += text[1][i];
+          concat += "<br>";
+        }
+        resolve(concat);
+      });
+    }
+    async function concat() {
+      const fetchedTexts = await fetchTexts();
+      const lineArrays = await splitTexts(fetchedTexts);
+      document.getElementById('A').innerHTML = lineArrays[0];
+      document.getElementById('B').innerHTML = lineArrays[1];
+
+      const concText = await concatTexts(lineArrays);
+      document.getElementById('concat').innerHTML = concText;
+
+    }
+
+    concat();
+  </script>
+</html>

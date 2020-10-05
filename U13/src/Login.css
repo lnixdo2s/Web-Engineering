@@ -1,0 +1,30 @@
+.form {
+    display: flex;
+    flex-direction: column;
+
+    border: 3px solid aliceblue;
+    border-radius: 10px;
+    padding: 5px;
+    width: 25%;
+
+    margin: 100px auto auto auto;
+    
+}
+.form label {
+    margin: 0 auto;
+    padding: 5px;
+}
+.form button {
+    margin-top: 20px;
+    width: 50%;
+    margin: 20px auto 5px auto;
+    border-radius: 5px;
+}
+.form input {
+    width: 50%;
+    margin: 0 auto;
+    background-color: transparent;
+    border-radius: 5px;
+    color: aliceblue;
+
+}

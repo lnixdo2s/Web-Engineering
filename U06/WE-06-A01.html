@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>U06 A01</title>
+  </head>
+  <body>
+    <h2>U06 A01: <br> </h2>
+    <h3>Text A</h3>
+    <div id="A">
+
+    </div>
+    <hr>
+    <h3>Text B</h3>
+    <div id="B">
+
+    </div>
+    <hr>
+    <h3>Concat</h3>
+    <div id="concat">
+
+
+    </div>
+    <script>
+      fun1();
+      function fun1() {
+        Promise.all([
+          fetch("http://localhost:8080/Desktop/U06/A.txt"),
+          fetch("http://localhost:8080/Desktop/U06/B.txt")
+        ])
+
+        .then(responses => Promise.all(responses.map(r => r.text())))
+        .then(texts => {
+          document.getElementById('A').innerText = texts[0];
+          document.getElementById('B').innerText = texts[1];
+          let concat = concatTexts(texts[0], texts[1]);
+          document.getElementById('concat').innerHTML = concat;
+        });
+      }
+      function concatTexts(text1, text2) {
+        const first = text1.split(/\r?\n/);
+        const last = text2.split(/\r?\n/);
+
+        let concat = "";
+        for (let i = 0; i < first.length || i < last.length; i++) {
+          if (i < first.length) concat += first[i] + " ";
+          if (i < last.length) concat += last[i];
+          concat += "<br>";
+        }
+        return concat;
+      }
+    </script>
+  </body>
+</html>

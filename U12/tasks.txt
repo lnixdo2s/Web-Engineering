@@ -1,0 +1,6 @@
+1) Erstellen Sie mit PHP 5 auf www2.inf.h-brs.de ein Registrierungsformular.
+Speichern Sie die eingegebenen Daten persistent in einer Datei auf www2.inf.h-brs.de.
+2)Schreiben Sie eine sichere PHP-Lösung für Login, das die persistierten Registrierungsdaten aus der letzten Aufgabe nutzt.
+3)Bauen Sie Ihren WWW-Navigator zum Content-Editor aus, mit dem Sie weitere Inhalte hinzu fügen können, die persistent auf dem Server mittels PHP gespeichert werden.
+Speichern Sie die Inhalte Ihres WWW-Navigators in einer JSON-Datei auf dem Server www2.inf.h-brs.de. Erweitern Sie Ihren WWW-Navigator um eine Edit-Funktionalität, so dass Inhalte editiert und ergänzt werden können. 
+Schützen Sie Ihre Inhalte mit einem Login.

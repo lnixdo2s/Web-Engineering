@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Counter</title>
+  </head>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <body>
+
+  </body>
+  <script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/webcomponents-loader.js"></script>
+  <script type="module">
+  import { LitElement, html, css } from 'https://unpkg.com/lit-element/lit-element.js?module';
+
+  class MyCounter extends LitElement {
+    static get properties() {
+      return {
+        value: { type: Number },
+        max: { type: Number },
+        class: { type: String }
+      };
+    }
+    constructor() {
+      super();
+
+      this.value = 0;
+      this.max = 10;
+      this.classname = "my-counter-button";
+    }
+    updateClicked(e) {
+    	this.value = this.value + 1;
+      if(this.value >= this.max) {
+        this.classname = "my-counter-button-2";
+      }
+    }
+    static get styles() {
+     return css`
+        .my-counter-button {
+          box-shadow:inset 0px 1px 0px 0px #ffffff;
+          background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+          background-color:#ffffff;
+          border-radius:28px;
+          border:2px solid #dcdcdc;
+          display:inline-block;
+          cursor:pointer;
+          color:#666666;
+          font-family:Times New Roman;
+          font-size:28px;
+          font-weight:bold;
+          padding:32px 76px;
+          text-decoration:none;
+          text-shadow:0px 2px 0px #ffffff;
+          width: 30 %;
+          margin-left: 35%;
+          margin-right: 35%;
+          margin-top: 10%;
+          height: 20%;
+          margin-bottom: 70%;
+        }
+        .my-counter-button:hover {
+          background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+          background-color:#f6f6f6;
+        }
+        .my-counter-button:active {
+          position:relative;
+          top:1px;
+        }
+        .my-counter-button-2 {
+          box-shadow:inset 0px 1px 0px 0px #ffffff;
+          background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+          background-color:#ffffff;
+          border-radius:28px;
+          border:2px solid #dcdcdc;
+          display:inline-block;
+          cursor:pointer;
+          color:#666666;
+          font-family:Times New Roman;
+          font-size:28px;
+          font-weight:bold;
+          padding:32px 76px;
+          text-decoration:none;
+          text-shadow:0px 2px 0px #ffffff;
+          width: 30 %;
+          margin-left: 35%;
+          margin-right: 35%;
+          margin-top: 10%;
+          height: 20%;
+          animation-duration: 400ms;
+          animation-name: blink;
+          animation-iteration-count: infinite;
+          animation-direction: alternate;
+        }
+        .my-counter-button-2:hover {
+          background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+          background-color:#f6f6f6;
+        }
+        .my-counter-button-2:active {
+          position:relative;
+          top:1px;
+        }
+       @keyframes blink {
+         from { color: #666666; }
+         to { color: red; }
+       }
+     `;
+    }
+
+    render() {
+      return html`
+        <label>
+          <input
+            @click="${this.updateClicked}"
+            type="button"
+            value="${this.value}"
+            max="${this.max}"
+            class="${this.classname}"
+            ></input>
+          <slot></slot>
+        </label>
+      `;
+    }
+  }
+
+  customElements.define('my-counter', MyCounter);
+</script>
+
+<my-counter value></my-counter>
+
+</html>

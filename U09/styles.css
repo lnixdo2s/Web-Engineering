@@ -1,0 +1,85 @@
+
+body {
+  font-family: "Lato", sans-serif;
+}
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color:#111;
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  text-decoration: none;
+  padding: 14px 16px;
+  font-size: 17px;
+  color: #818181;
+  transition: 0.3s;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  color: #f1f1f1;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+.topnav a.active:hover {
+  color: #111;
+}
+
+.sidenav {
+  height: 100%;
+  width: 150px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  overflow: hidden;
+  padding-top: 100px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 17px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+.content {
+  text-align: left;
+  margin: 100px 100px 0px 0px;
+}
+.source {
+  text-decoration: none;
+  text-align: left;
+  position: fixed;
+  padding: 12px 14px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #111;
+  color: white;
+}

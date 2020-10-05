@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Performance</title>
+  </head>
+  <body>
+    <p id="htmlContent">
+      <h3>Plain HTML</h3>
+      Some text & some <b><k> tags</k></b>
+      <hr>
+    </p>
+    <p id="table1">
+      <hr>
+    </p>
+    <p id="output1">
+      <hr>
+    </p>
+    <p id="output2">
+      <hr>
+    </p>
+    <p id="output3">
+      <hr>
+    </p>
+    <p id="output4">
+
+    </p>
+    <script type="text/javascript">
+      /*
+      Implementieren Sie Performanzmessungen zum Vergleich von innerHTML,
+      innerText, textContent und outerHTML selbstständig in JavaScript
+      durch Nutzung der DOM API. Geben Sie die Messergebnisse als Tabelle aus.
+      Verwenden Sie die eingebauten Zeitmess-Funktionen Date.now oder performance.now.
+      Suchen Sie eine möglichst kurze und elegante Lösung.
+      */
+      let per1 = performance.now();
+      document.getElementById("output1").innerHTML = "innerHTML";
+      per1 = performance.now() - per1;
+      console.log(per1);
+
+      let per2 = performance.now();
+      document.getElementById("output2").innerText = "innerText";
+      per2 = performance.now() - per2;
+      console.log(per2);
+
+      let per3 = performance.now();
+      document.getElementById("output3").textContent = "textContent";
+      per3 = performance.now() - per3;
+      console.log(per3);
+
+      let per4 = performance.now();
+      document.getElementById("output4").outerHTML = "outerHTML";
+      per4 = performance.now() - per4;
+      console.log(per4);
+
+      let table = `<table style="width:40%"> \
+        <tr>
+          <th>Name</th>
+          <th>Time in ms</th>
+        </tr>
+        <tr>
+          <td>innerHTML</td>
+          <td>` + per1 + `</td>
+        </tr>
+        <tr>
+          <td>innerText</td>
+          <td>` + per2 + `</td>
+        </tr>
+        <tr>
+          <td>textContent</td>
+          <td>` + per3 + `</td>
+        </tr>
+        <tr>
+          <td>outerHTML</td>
+          <td>` + per4 + `</td>
+        </tr>`;
+      document.getElementById("table1").innerHTML = table;
+    </script>
+  </body>
+</html>

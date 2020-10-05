@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    Horizontal:
+    <my-menu orientation="horizontal">
+      <button type="button" name="button"></button>
+      <input type="text" name="" value="">
+      <input type="range" name="" value="">
+    </my-menu>
+    Vertical:
+    <my-menu orientation="vertical">
+      <button type="button" name="button"></button>
+      <input type="text" name="" value="">
+      <input type="range" name="" value="">
+    </my-menu>
+  </body>
+  <script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/webcomponents-loader.js"></script>
+  <script type="module">
+    import { LitElement, html, css } from 'https://unpkg.com/lit-element/lit-element.js?module';
+    class MyMenu extends LitElement {
+      static get properties() {
+        return {
+          orientation: { type: String }
+        };
+      }
+      constructor() {
+        super();
+        this.orientation = "horizontal";
+      }
+      static get styles() {
+       return css`
+          .horizontal {
+            display: flex;
+            flex-direction: row;
+          }
+          .vertical {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+          }
+       `;
+      }
+      render() {
+        return html`
+          <div class='${this.orientation}'>
+          <slot></slot>
+          </div>
+        `;
+      }
+    }
+    customElements.define('my-menu', MyMenu);
+  </script>
+</html>

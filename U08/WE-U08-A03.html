@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/webcomponents-loader.js"></script>
+  <script type="module">
+  import { LitElement, html, css, svg } from 'https://unpkg.com/lit-element/lit-element.js?module';
+
+  class Bezier extends LitElement {
+    static get properties() {
+      return {
+        x1: { type: Number },
+        x2: { type: Number },
+        x3: { type: Number },
+        y1: { type: Number },
+        y2: { type: Number },
+        y3: { type: Number }
+      };
+    }
+    constructor() {
+      super();
+      this.x1 = 0;
+      this.x2 = 0;
+      this.x3 = 0;
+      this.y1 = 0;
+      this.y2 = 0;
+      this.y3 = 0;
+    }
+
+    static get styles() {
+     return css`
+     `;
+    }
+//        ${this.arr.map((x, i) => html`<g class="bar"><rect width="${x.count * 10}" height="18" y="${i * 25}" x="100"></rect><text x="25" y="${i*25 + 15}">${x.name}</text></g>`)}
+
+    render() {
+      return svg`<svg width="1000" height="1000">
+          <path d="M${this.x1} ${this.y1} Q ${this.x2} ${this.y2} ${this.x3} ${this.y3}" stroke="black" fill="transparent"/>
+          <text x="${this.x1}" y="${this.y1}">(${this.x1},${this.y1})</text>
+          <circle cx="${this.x1}" cy="${this.y1}" r="5" fill="red" />
+          <text x="${this.x2}" y="${this.y2}">(${this.x2},${this.y2})</text>
+          <circle cx="${this.x2}" cy="${this.y2}" r="5" fill="red" />
+          <text x="${this.x3}" y="${this.y3}">(${this.x3},${this.y3})</text>
+          <circle cx="${this.x3}" cy="${this.y3}" r="5" fill="red" />
+        </svg>`;
+
+      /*this.arr.map(function(x,i) {
+        sv += `<g class="bar"><rect width="${x.count * 10}" height="18" y="${i * 25}" x="100"></rect><text x="25" y="${i*25 + 15}">${x.name}</text></g>`;
+      });
+      sv += `</svg>`;*/
+    }
+  }
+  customElements.define('be-zier', Bezier);
+</script>
+
+<be-zier x1=30 y1=40 x2=350 y2=450 x3=500 y3=90></be-zier>
+</html>

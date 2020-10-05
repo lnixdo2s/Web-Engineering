@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8" />
+
+<style>
+
+html,body {
+  height: 100%;
+  box-sizing: border-box;
+}
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: strecht;
+  text-align: center;
+  padding: 2em;
+  height: 100%;
+}
+
+
+.header {
+  background: rgb(252,	14,	27);
+  width: 100%;
+  height: 15%;
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 2px;
+  border-color: white;
+}
+
+.main {
+  background: rgb(17,	40,	251);
+  width: 60%;
+  height: 85%;
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 2px;
+  border-color: white;
+}
+
+.right {
+  background: rgb(231,	38,	250);
+  width: 20%;
+  height: 85%;
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 2px;
+  border-color: white;
+}
+
+.left {
+  background: rgb(58, 235,	58);
+  width: 20%;
+  height: 85%;
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 2px;
+  border-color: white;
+}
+
+/* Tablet */
+@media screen and (max-width: 600px) {
+  aside.left { width: 20%;}
+  article.main { width: 80%; }
+  aside.right { width: 100%; }
+
+  aside.left, article.main { height: 95%; }
+  aside.right { height: 30%; }
+}
+/* Desktop */
+@media screen and (max-width: 300px) {
+  article.main { width: 100%; order: 2;}
+  aside.left, aside.right { width: 100%; }
+  aside.left { order: 1; }
+  aside.right { order: 3; }
+
+  aside.left, aside.right { height: 30%; }
+  article.main { height: 85%; }
+}
+
+</style>
+
+<div class="wrapper">
+  <header class="header"></header>
+  <aside class="left"></aside>
+  <article class="main"></article>
+  <aside class="right"></aside>
+</div>
+
+</html>

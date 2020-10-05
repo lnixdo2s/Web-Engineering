@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8" />
+
+<head>
+  <style>
+    body {
+      background-color: #b2d6d1;
+      font-family: verdana;
+    }
+    #div1 {
+      background-color: white;
+      border-radius: 4px;
+      width: 75%;
+      margin: 0 auto;
+      font-family: verdana;
+      line-height: 2;
+    }
+    td {
+      width: 50%;
+    }
+    htext {
+      line-height: 10;
+    }
+  </style>
+  <title>Survey Form</title>
+</head>
+
+<body>
+  <h1 align="center">Survey Form</h1>
+  <div id=div1>
+    <form align="center">
+      <table align="center">
+        <tr>
+          <td colspan="2">Let us know how we can improve freeCodeCamp</td>
+        </tr>
+
+        <tr>
+          <td align="right">
+            * Name:
+          </td>
+          <td align="left">
+            <input class="htext" type="text" placeholder="Enter your name"><br>
+          </td>
+        </tr>
+
+        <tr>
+          <td align="right">
+            * Email:
+          </td>
+          <td align="left">
+            <input class="htext" type="text" placeholder="Enter your Email"><br>
+          </td>
+        </tr>
+
+        <tr>
+          <td align="right">
+            * Age:
+          </td>
+          <td align="left">
+            <input type="number" placeholder="Age"><br>
+          </td>
+        </tr>
+
+        <tr>
+          <td align="right">
+            Which option best describes your current role?
+          </td>
+          <td align="left">
+            <select name="role">
+              <option value="Student">Student</option>
+              <option value="Arbeitslos">Arbeitslos</option>
+              <option value="Angestellter">Angestellter</option>
+              <option value="Rich-Bitch">Rich-Bitch</option>
+            </select><br>
+          </td>
+        </tr>
+
+        <tr>
+          <td align="right">
+            * How likley is that you would recommend <br>freeCodeCamp to friend?
+          </td>
+          <td align="left">
+            <input type="radio" name="r1" value=0> Definitely<br>
+            <input type="radio" name="r1" value=0> Maybe<br>
+            <input type="radio" name="r1" value=0> Not sure<br>
+          </td>
+        </tr>
+
+        <tr>
+          <td align="right">
+                What do you like most in FCC:
+          </td>
+          <td align="left">
+            <select name="role">
+                <option value="s">Select an option</option>
+            </select><br>
+          </td>
+        </tr>
+
+        <tr>
+          <td align="right">
+            Things that should be improved in the future <br>(Check all that apply):
+          </td>
+          <td align="left">
+            <input type="checkbox" name="c1" value=0> Front-end Projects<br>
+            <input type="checkbox" name="c1" value=0> Back-end Projects<br>
+            <input type="checkbox" name="c1" value=0> Data Visualization<br>
+          </td>
+        </tr>
+
+      </table>
+
+    </form>
+  </div>
+</body>
+
+</html>

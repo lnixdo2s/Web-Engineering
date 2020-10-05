@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>WE-09-01</title>
+  </head>
+  <body>
+    <div class="topnav">
+      <a href="home" data-navigo>Home</a>
+      <a href="html" data-navigo>HTML</a>
+      <a href="css" data-navigo>CSS</a>
+      <a href="javascript" data-navigo>Javascript</a>
+    </div>
+    <div id="content" class="content">
+
+    </div>
+    <div id="source" class="source">
+
+    </div>
+  </body>
+  <script src="//unpkg.com/navigo@6"></script>
+  <script type="module">
+
+    var root = null;
+    var useHash = true; // Defaults to: false
+    var hash = '#!'; // Defaults to: '#'
+    var router = new Navigo(root, useHash, hash);
+
+    router
+      .on('html', function () {
+        console.log('html');
+        loadData()
+          .then((response) => {
+               showcontent('html', response);
+           });
+      })
+      .on('css', function () {
+        console.log('css');
+        loadData()
+          .then((response) => {
+               showcontent('css', response);
+           });
+      })
+      .on('javascript', function () {
+        console.log('javascript');
+        loadData()
+          .then((response) => {
+               showcontent('javascript', response);
+           });
+      })
+      .on('home', function () {
+        router.navigate('');
+      })
+      .resolve();
+    router
+      .on(function () {
+        console.log('home');
+        loadData()
+          .then((response) => {
+               showcontent('home', response);
+           });
+      })
+      .resolve();
+    router.notFound(function () {
+      console.log('not found');
+      loadData()
+        .then((response) => {
+             showcontent('notFound', response);
+         });
+    });
+
+    async function loadData() {
+         const response = await fetch("data.json");
+         const data = await response.json();
+         return data;
+    }
+    function showcontent(menu, data) {
+      document.getElementById('content').innerHTML = "Content: <br>" + data.menus[menu].Content;
+      document.getElementById('source').innerHTML = "Source: " + data.menus[menu].Source;
+    }
+
+  </script>
+</html>

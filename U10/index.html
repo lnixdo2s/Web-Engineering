@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>U10</title>
+  </head>
+  <body>
+    <div class="nav">
+      <top-nav id="home" link="" text="Home"></top-nav>
+      <top-nav id="button" link="button.html" text="Vue Counter"></top-nav>
+      <top-nav id="content" link="" text="Content"></top-nav>
+    </div>
+  </body>
+  <script type="text/javascript">
+    Vue.component('top-nav', {
+      props: ["link","text"],
+      template: `
+        <div class="top-nav">
+          <a :href="link">{{text}}</a>
+        </div>
+        `
+    })
+    new Vue({ el: '#home' })
+    new Vue({ el: '#button' })
+    new Vue({ el: '#content' })
+  </script>
+</html>

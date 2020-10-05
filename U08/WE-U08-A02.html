@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/webcomponents-loader.js"></script>
+  <script type="module">
+  import { LitElement, html, css, svg } from 'https://unpkg.com/lit-element/lit-element.js?module';
+
+  class BarChart extends LitElement {
+    static get properties() {
+      return {
+        data: { type: String },
+        arr: { type: Array },
+        arr2: { type: Array }
+      };
+    }
+    constructor() {
+      super();
+      this.classname = "bar-chart";
+      this.arr = ['0','0'];
+      this.arr2 = ['0','1','2','3'];
+      this.loadData()
+    }
+    async loadData() {
+      const response = await fetch("frucht.json");
+      this.arr = await response.json();
+      //this.arr.forEach(x => console.log(x.name));
+    }
+    returnArray() {
+      return this.arr;
+    }
+    animal() {
+      var f1 = {name:"Apfel", count:"19"};
+      var f2 = {name:"Banane", count:"25"};
+      var f3 = {name:"Blaubeere", count:"17"};
+      var f4 = {name:"Tomate", count:"7"};
+      var f5 = {name:"Mango", count:"11"};
+      var f6 = {name:"Kirsche", count:"14"};
+
+      var a1 = [f1,f2,f3,f4,f5,f6];
+      var j1 = JSON.stringify(a1);
+      console.log(j1);
+    }
+
+    static get styles() {
+     return css`
+     `;
+    }
+//        ${this.arr.map((x, i) => html`<g class="bar"><rect width="${x.count * 10}" height="18" y="${i * 25}" x="100"></rect><text x="25" y="${i*25 + 15}">${x.name}</text></g>`)}
+
+    render() {
+      return svg`<svg viewBox="0 0 1000 500" width="1000px" height="500px">
+        <style>
+          rect {
+            fill: #6c567b;
+          }
+          rect:hover {
+            fill: #c06c84;
+          }
+          text {
+            fill: #6c567b;
+          }
+        </style>
+        <g class="bar">
+          <rect width="${this.arr[0].count * 10}" height="18" y="${0 * 25}" x="100"></rect>
+          <text x="25" y="${0*25 + 15}">${this.arr[0].name}</text>
+          <text x="100" y="${0*25 + 15}">${this.arr[0].count}</text>
+        </g>
+        <g class="bar">
+          <rect width="${this.arr[1].count * 10}" height="18" y="${1 * 25}" x="100"></rect>
+          <text x="25" y="${1*25 + 15}">${this.arr[1].name}</text>
+          <text x="100" y="${1*25 + 15}">${this.arr[1].count}</text>
+        </g>
+        <g class="bar">
+          <rect width="${this.arr[2].count * 10}" height="18" y="${2 * 25}" x="100"></rect>
+          <text x="25" y="${2*25 + 15}">${this.arr[2].name}</text>
+          <text x="100" y="${2*25 + 15}">${this.arr[2].count}</text>
+        </g>
+        <g class="bar">
+          <rect width="${this.arr[3].count * 10}" height="18" y="${3 * 25}" x="100"></rect>
+          <text x="25" y="${3*25 + 15}">${this.arr[3].name}</text>
+          <text x="100" y="${3*25 + 15}">${this.arr[3].count}</text>
+        </g>
+        <g class="bar">
+          <rect width="${this.arr[4].count * 10}" height="18" y="${4 * 25}" x="100"></rect>
+          <text x="25" y="${4*25 + 15}">${this.arr[4].name}</text>
+          <text x="100" y="${4*25 + 15}">${this.arr[4].count}</text>
+        </g>
+        <g class="bar">
+          <rect width="${this.arr[5].count * 10}" height="18" y="${5 * 25}" x="100"></rect>
+          <text x="25" y="${5*25 + 15}">${this.arr[5].name}</text>
+          <text x="100" y="${5*25 + 15}">${this.arr[5].count}</text>
+        </g>
+      <svg>`;
+
+      /*this.arr.map(function(x,i) {
+        sv += `<g class="bar"><rect width="${x.count * 10}" height="18" y="${i * 25}" x="100"></rect><text x="25" y="${i*25 + 15}">${x.name}</text></g>`;
+      });
+      sv += `</svg>`;*/
+    }
+  }
+  customElements.define('bar-chart', BarChart);
+</script>
+
+<bar-chart data="frucht.json"></bar-chart>
+</html>

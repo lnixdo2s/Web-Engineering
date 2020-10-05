@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Einkaufsliste</title>
+  </head>
+  <body>
+    <h1>Einkaufsliste</h1>
+    Enter new Item: <input type="text" id="input"> </input>
+    <button id="button">Add item</button>
+
+    <ul id="output"></ul>
+
+    <script type="text/javascript">
+
+    let input = document.getElementById("input");
+    let button = document.getElementById("button");
+    let output = document.getElementById("output");
+
+    button.addEventListener("click", function() {
+      let li = document.createElement("li");
+      li.appendChild(document.createTextNode(input.value));
+      let button = document.createElement("button");
+      button.appendChild(document.createTextNode("Delete"))
+      button.addEventListener("click", function() {
+        li.remove();
+      });
+      li.appendChild(button)
+      output.appendChild(li);
+      //output.innerHTML += "<li>" + input.value +  "<button onclick='javascript:this.parentElement.remove()'>Delete</button> </li>"
+    })
+
+    </script>
+  </body>
+</html>

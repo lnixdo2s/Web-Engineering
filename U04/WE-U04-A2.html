@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+  <script type="text/javascript">
+    /*
+    Schreiben Sie eine JavaScript-Fabrikfunktion für Warteschlangen (FIFO-Prinzip).
+    Fabrikfunktionen erzeugen Objekte. Privatisieren Sie so viel wie möglich.
+    Schreiben Sie Tests für Ihre Implementierung.
+    */
+    function queue() {
+      let q = [];
+      return {
+        insert: function(x) {
+          q.push(x);
+        },
+        get: function() {
+          return q.shift();
+        },
+        delete: function(x) {
+          q.delete(x);
+        },
+        getQueue: function() {
+          return q;
+        }
+      }
+    }
+    /*
+    let myQ = queue();
+    myQ.insert("a");
+    myQ.insert("b");
+    myQ.insert("c");
+    console.log(myQ.getQueue());
+    console.log(myQ.get());
+    console.log(myQ.getQueue());
+    myQ.insert("d");
+    console.log(myQ.getQueue());
+    console.log(myQ.get());
+    console.log(myQ.getQueue());
+    */
+
+    /*
+    Schreiben Sie eine JavaScript-Fabrikfunktion für ungeordnete Mengen.
+    In ungeordneten Mengen tritt kein Element mehrfach auf.
+    Privatisieren Sie so viel wie möglich. Schreiben Sie Tests für Ihre Implementierung.
+    */
+    function makeSet() {
+      let set = [];
+      return {
+        insert: function(x) {
+          if(!set.includes(x,0)) set.push(x);
+        },
+        getSet: function() {
+          return set;
+        }
+      }
+    }
+    let mySet = makeSet();
+    mySet.insert("a");
+    mySet.insert("b");
+    mySet.insert("c");
+    console.log(mySet.getSet());
+    mySet.insert("c");
+    console.log(mySet.getSet());
+    mySet.insert("d");
+    console.log(mySet.getSet());
+
+    /*
+    Schreiben Sie eine JavaScript-Fabrikfunktion für ungeordnete Multi-Mengen.
+    In ungeordneten Multi-Mengen dürfen Elemente mehrfach auftreten.
+    Privatisieren Sie so viel wie möglich. Schreiben Sie Tests für Ihre Implementierung.
+    */
+    function makeMultiSet() {
+      let set = [];
+      return {
+        insert: function(x) {
+          set.push(x);
+        },
+        getSet: function() {
+          return set;
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

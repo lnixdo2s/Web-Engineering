@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Baumans&display=swap');
+
+body {
+  font-family: 'Baumans';
+  background-image: url(https://media.giphy.com/media/RkDZq0dhhYHhxdFrJB/giphy.gif);
+  background-size: cover;
+  background-position-y: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  color: aliceblue;
+}
+
+.mainpage {
+  width: 66%;
+  margin-left: 15px;
+}
+
+.sidecontent {
+  width: 24%;
+  margin-left: 5px;
+  margin-top: 5%;
+}
+.sidecontent a {
+  color: aliceblue;
+}
+
+.sidenav {
+  list-style-type: none;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 0px;
+  margin-top: 5%;
+  width: 10%;
+}
+.sidenav li {
+  border: 3px solid aliceblue;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 2px 0px 2px 0px;
+  width: 90%;
+}
+.sidenav a {
+  text-decoration: none;
+  color: aliceblue;
+}
+
+.unav {
+  list-style-type: none;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-left: 0px;
+  margin-top: 5%;
+  width: 80%;
+}
+.unav li {
+  border: 3px solid aliceblue;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 2px 2px 2px 2px;
+  width: 90%;
+  text-align: center;
+}
+.unav a {
+  text-decoration: none;
+  color: aliceblue;
+}
+
+.upage {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.title {
+  text-align: center;
+}
