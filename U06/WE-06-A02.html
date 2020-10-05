@@ -27,8 +27,8 @@
 
     function fetchTexts() {
       return Promise.all([
-        fetch("http://localhost:8080/Desktop/U06/A.txt").then(response => response.text()),
-        fetch("http://localhost:8080/Desktop/U06/B.txt").then(response => response.text())
+        fetch("A.txt").then(response => response.text()),
+        fetch("B.txt").then(response => response.text())
       ])
     }
     async function splitTexts(fetchedTexts) {

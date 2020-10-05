@@ -25,8 +25,8 @@
       fun1();
       function fun1() {
         Promise.all([
-          fetch("http://localhost:8080/Desktop/U06/A.txt"),
-          fetch("http://localhost:8080/Desktop/U06/B.txt")
+          fetch("A.txt"),
+          fetch("B.txt")
         ])
 
         .then(responses => Promise.all(responses.map(r => r.text())))
